@@ -1,117 +1,45 @@
 ---
 title: Create a project
-description: Learn how to create a new Expo project and run it on your device.
+description: Learn how to create a new Expo project.
+hideTOC: true
 ---
 
-import { Collapsible } from '~/ui/components/Collapsible';
 import { Terminal } from '~/ui/components/Snippet';
-import ImageSpotlight from '~/components/plugins/ImageSpotlight';
-import { Step } from '~/ui/components/Step';
-import { BoxLink } from '~/ui/components/BoxLink';
-import { BookOpen02Icon, GraduationHat02Icon } from '@expo/styleguide-icons';
 
-The process of running a new Expo project consists of three steps. You start by initializing a new project, then start the development server with Expo CLI and finally open the app on your device with Expo Go to see your changes live.
+Create a project with:
 
-<Step label="1">
+<Terminal cmd={['$ npx create-expo-app@latest']} />
 
-## Initialize a new project
+> You can use another template by adding the `--template` flag.
 
-To initialize a new project, use [`create-expo-app`](/more/glossary-of-terms/#create-expo-app) to run the following command:
+The default project includes:
 
-<Terminal
-  cmd={[
-    '# Create a project named my-app',
-    '$ npx create-expo-app my-app',
-    '',
-    '# Navigate to the project directory',
-    '$ cd my-app',
-  ]}
-  cmdCopy="npx create-expo-app my-app && cd my-app"
-/>
+- [Navigation](/router/introduction/)
+- [Themes](/develop/user-interface/color-themes)
+- [Animations](/develop/user-interface/animation/)
+- [Unit tests](/develop/unit-testing)
+- [Fonts](/develop/user-interface/fonts/)
+- [Images](/versions/latest/sdk/image/)
 
-> **info** You can also use the `--template` option with the `create-expo-app` command. Run `npx create-expo-app --template` to see the list of available templates.
+Here’s an overview of the project’s structure:
 
-</Step>
-
-<Step label="2">
-
-## Start the development server
-
-To start the development server, run the following command:
-
-<Terminal cmd={['$ npx expo start']} />
-
-When you run the above command, the Expo CLI starts [Metro Bundler](/guides/customizing-metro). This bundler is an HTTP server that compiles the JavaScript code of your app using [Babel](https://babeljs.io/) and serves it to the Expo app. See how [Expo Development Server](/more/expo-cli/#develop) works for more information about this process.
-
-</Step>
-
-<Step label="3">
-
-## Open the app on your device
-
-To open the app on your device that has [Expo Go](/get-started/expo-go/) already installed:
-
-- On your Android device, press **Scan QR Code** on the **Home** tab of the Expo Go app and scan the QR code you see in the terminal.
-- On your iPhone or iPad, open the default Apple **Camera** app and scan the QR code you see in the terminal.
-
-You can open the project on multiple devices simultaneously. Go ahead and try it on both phones at the same time if you have them handy.
-
-<Collapsible summary="Is the app not loading on your device?">
-
-First, make sure you are on the same Wi-Fi network on your computer and your device.
-
-If it still doesn't work, it may be due to the router configuration &mdash; this is common for public networks. You can work around this by choosing the **Tunnel** connection type when starting the development server, then scanning the QR code again.
-
-<Terminal cmd={['$ npx expo start --tunnel']} />
-
-> Using the **Tunnel** connection type will make the app reloads considerably slower than on **LAN** or **Local**, so it's best to avoid tunnel when possible. You may want to install an emulator/simulator to speed up development if **Tunnel** is required for accessing your machine from another device on your network.
-
-</Collapsible>
-
-<Collapsible summary="Using an emulator or a simulator?">
-
-If you are using an emulator/simulator, you may find the following Expo CLI keyboard shortcuts to be useful to open the app on any of the following platforms:
-
-- Pressing <kbd>a</kbd> will open in an [Android Emulator or connected device](/workflow/android-studio-emulator).
-- Pressing <kbd>i</kbd> will open in an [iOS Simulator](/workflow/ios-simulator).
-- Pressing <kbd>w</kbd> will open in a [web browser](/workflow/web). Expo supports all major browsers.
-
-</Collapsible>
-
-</Step>
-
-<Step label="4">
-
-## Make your first change in App.js
-
-Now, all the steps are completed to get started, you can open **App.js** file in your code editor and change the contents of the existing `<Text>` to `Hello, world!`. You are going to see it update on your device.
-
-Amazing, progress! You now have the Expo toolchain running on your machine, can edit the source code for a project, and see the changes live on your device.
-
-<Collapsible summary="Changes not showing up on your device?">
-
-Expo Go is configured by default to automatically reload the app whenever a file is changed, but let's make sure to go over the steps to enable it in case somehow things aren't working.
-
-- Make sure you have the [development mode enabled in Expo CLI](/workflow/development-mode#development-mode).
-- Close the Expo app and reopen it.
-- Once the app is open again, shake your device to reveal the developer menu. If you are using an emulator, press <kbd>Ctrl</kbd> + <kbd>M</kbd> for Android or <kbd>Cmd ⌘</kbd> + <kbd>D</kbd> for iOS.
-- If you see **Enable Fast Refresh**, press it. If you see **Disable Fast Refresh**, dismiss the developer menu. Now try making another change.
-
-  <ImageSpotlight
-    alt="Developer menu in Expo Go app."
-    src="/static/images/get-started/developer-menu.png"
-    style={{ maxWidth: 720 }}
-  />
-
-</Collapsible>
-
-</Step>
-
-## Next step
-
-<BoxLink
-  title="Tutorial"
-  description="If you are new to Expo, learn more about the ecosystem by creating a universal app that runs on Android, iOS, and web."
-  href="/tutorial/introduction"
-  Icon={GraduationHat02Icon}
-/>
+- **app/**
+  - The files inside the **app** diretory create the app’s [navigation](link to navigation).
+- **assets**
+  - The **assets** folder contains **adaptive-icon.png** used for Android and an **icon.png** used for iOS as an app icon. It also contains **splash.png** which is an image for the project's splash screen and a **favicon.png** if the app runs in a browser.
+- **components**
+  - Contains React Native components, like **ThemedText.tsx**, which creates text elements that use the app’s color scheme in light and dark mode.
+- **constants**
+  - Contains **Colors.ts**, which contains a list of color values throughout the app.
+- **hooks**
+  - Contains [React Hooks](link), which allows sharing common behavior between components.
+- **scripts**
+  - Contains **reset-project.js**, which can be run with `npx run reset-project`. This script will move the **app** directory to **app-example**, and create a new **app** directory with an **index.tsx** file.
+- **app.json**
+  - Contains configuration options for the project. These options change the behavior of your project while developing, building, submitting, and updating your app.
+- **babel.config.js**
+  - Applies the babel-preset-expo preset that extends the default React Native preset and adds support for decorators, tree-shaking web packages, and loading font icons with optional native dependencies if they're installed. You can also modify this file to add additional Babel plugins or presets.
+- **package.json**
+  - The **package.json** file contains the project's dependencies, scripts and metadata. Anytime a new dependency is added to your project, it will be added to this file.
+- **tsconfig.json**
+  - Contains the rules that TypeScript will use to enforce type safety throughout the project.
