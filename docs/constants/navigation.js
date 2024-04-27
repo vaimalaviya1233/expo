@@ -58,7 +58,6 @@ const home = [
     makePage('get-started/next-steps.mdx'),
   ]),
   makeSection('Develop', [
-    makePage('develop/project-structure.mdx'),
     makeGroup(
       'User interface',
       [
