@@ -1,8 +1,15 @@
-import { Button, ButtonBase, mergeClasses } from '@expo/styleguide';
-import { ArrowRightIcon } from '@expo/styleguide-icons';
 import { useState } from 'react';
 
-import { CALLOUT, CODE, HEADLINE } from '~/ui/components/Text';
+import { Content } from './Content';
+import { Tab } from './Tab';
+import Animations from './features/animations.mdx';
+import Fonts from './features/fonts.mdx';
+import Images from './features/images.mdx';
+import Navigation from './features/navigation.mdx';
+import Platforms from './features/platforms.mdx';
+import Themes from './features/themes.mdx';
+
+import { HEADLINE } from '~/ui/components/Text';
 
 export function TemplateFeatures() {
   const [selected, setSelected] = useState('navigation');
@@ -10,106 +17,96 @@ export function TemplateFeatures() {
   return (
     <div className="text-default rounded-md overflow-hidden border border-default">
       <div className="bg-subtle p-3 flex pl-4 border-b border-default">
-        <HEADLINE>Default template</HEADLINE>
+        <HEADLINE>Default project</HEADLINE>
       </div>
-      <div className="grid grid-cols-3">
-        <div className="p-3 flex flex-col gap-2 col-span-1 border-r border-default">
-          <ButtonBase
+      <div className="grid grid-cols-1 md:grid-cols-[250px_minmax(0,_1fr)]">
+        <div className="p-3 flex flex-col gap-1 md:border-r md:border-b-0 border-default border-b">
+          <Tab
+            title="File-based routing"
             onClick={() => setSelected('navigation')}
-            className={mergeClasses(
-              'p-3 rounded-md text-secondary hocus:bg-hover border border-transparent',
-              selected === 'navigation' && 'bg-default border-default border shadow-xs text-default'
-            )}>
-            File-based routing
-          </ButtonBase>
-          <ButtonBase
+            isSelected={selected === 'navigation'}
+          />
+          <Tab
+            title="Android, iOS, and Web support"
             onClick={() => setSelected('platforms')}
-            className={mergeClasses(
-              'p-3 rounded-md text-secondary hocus:bg-hover border border-transparent',
-              selected === 'platforms' && 'bg-default border-default border shadow-xs text-default'
-            )}>
-            Android, iOS, and Web support
-          </ButtonBase>
-          <ButtonBase
+            isSelected={selected === 'platforms'}
+          />
+          <Tab
+            title="Images"
             onClick={() => setSelected('images')}
-            className={mergeClasses(
-              'p-3 rounded-md text-secondary hocus:bg-hover border border-transparent',
-              selected === 'images' && 'bg-default border-default border shadow-xs text-default'
-            )}>
-            Images
-          </ButtonBase>
-          <ButtonBase
+            isSelected={selected === 'images'}
+          />
+          <Tab
+            title="Custom fonts"
             onClick={() => setSelected('fonts')}
-            className={mergeClasses(
-              'p-3 rounded-md text-secondary hocus:bg-hover border border-transparent',
-              selected === 'fonts' && 'bg-default border-default border shadow-xs text-default'
-            )}>
-            Custom fonts
-          </ButtonBase>
-          <ButtonBase
+            isSelected={selected === 'fonts'}
+          />
+          <Tab
+            title="Light and dark modes"
             onClick={() => setSelected('themes')}
-            className={mergeClasses(
-              'p-3 rounded-md text-secondary hocus:bg-hover border border-transparent',
-              selected === 'themes' && 'bg-default border-default border shadow-xs text-default'
-            )}>
-            Light and dark mode
-          </ButtonBase>
+            isSelected={selected === 'themes'}
+          />
+          <Tab
+            title="Animations"
+            onClick={() => setSelected('animations')}
+            isSelected={selected === 'animations'}
+          />
         </div>
-        <div className="bg-default col-span-2">
+        <div className="bg-default">
           {selected === 'navigation' ? (
-            <div>
-              <div className="flex items-center justify-center bg-screen">
-                <img src="/static/images/get-started/navigation.png" className="size-[300px]" />
-              </div>
-              <div className="flex flex-col gap-3 items-start p-6 border-t border-default bg-default">
-                <div>
-                  <HEADLINE>File-based routing</HEADLINE>
-                  <CALLOUT theme="secondary">
-                    The app has two screens: <strong>app/(tabs)/index.tsx</strong> and{' '}
-                    <strong>app/(tabs)/explore.tsx</strong>. The layout file in{' '}
-                    <strong>app/(tabs)/_layout.tsx</strong> sets up the tab navigator.
-                  </CALLOUT>
-                </div>
-                <Button
-                  href="/router/introduction"
-                  rightSlot={<ArrowRightIcon />}
-                  theme="secondary">
-                  Learn more
-                </Button>
-              </div>
-            </div>
+            <Content
+              imgSrc="/static/images/get-started/navigation.png"
+              darkImgSrc="/static/images/get-started/navigation-dark.png"
+              alt="Two tabs in an Expo app"
+              content={<Navigation />}
+              href="/router/introduction"
+            />
+          ) : null}
+          {selected === 'platforms' ? (
+            <Content
+              imgSrc="/static/images/get-started/platforms.png"
+              darkImgSrc="/static/images/get-started/platforms-dark.png"
+              alt="Android, iOS, and web logos"
+              content={<Platforms />}
+            />
+          ) : null}
+          {selected === 'images' ? (
+            <Content
+              imgSrc="/static/images/get-started/images.png"
+              darkImgSrc="/static/images/get-started/images-dark.png"
+              alt="React image in a header component"
+              content={<Images />}
+              href="/versions/latest/sdk/image"
+            />
+          ) : null}
+          {selected === 'fonts' ? (
+            <Content
+              imgSrc="/static/images/get-started/fonts.png"
+              darkImgSrc="/static/images/get-started/fonts-dark.png"
+              alt="Various fonts on a screen"
+              content={<Fonts />}
+              href="/develop/user-interface/fonts"
+            />
           ) : null}
           {selected === 'themes' ? (
-            <div>
-              <div className="flex items-center justify-center bg-screen">
-                <img src="/static/images/get-started/themes.png" className="size-[300px]" />
-              </div>
-              <div className="flex flex-col gap-3 items-start p-6 border-t border-default bg-default">
-                <div>
-                  <HEADLINE>Light and dark modes</HEADLINE>
-                  <CALLOUT theme="secondary">
-                    This template has light and dark mode support. The <CODE>useColorScheme()</CODE>{' '}
-                    hook lets you inspect what the user's current color scheme is, so that you can
-                    adjust UI colors accordingly.
-                  </CALLOUT>
-                </div>
-                <Button
-                  href="/router/introduction"
-                  rightSlot={<ArrowRightIcon />}
-                  theme="secondary">
-                  Learn more
-                </Button>
-              </div>
-            </div>
+            <Content
+              imgSrc="/static/images/get-started/themes.png"
+              alt="An app with light and dark mode UIs"
+              content={<Themes />}
+              href="/develop/user-interface/color-themes"
+            />
+          ) : null}
+          {selected === 'animations' ? (
+            <Content
+              imgSrc="/static/images/get-started/animations.png"
+              darkImgSrc="/static/images/get-started/animations-dark.png"
+              alt="Waving hand and a welcome message"
+              content={<Animations />}
+              href="/develop/user-interface/animation"
+            />
           ) : null}
         </div>
       </div>
     </div>
   );
 }
-
-// - [Navigation](/router/introduction/)
-// - [Themes](/develop/user-interface/color-themes)
-// - [Animations](/develop/user-interface/animation/)
-// - [Fonts](/develop/user-interface/fonts/)
-// - [Images](/versions/latest/sdk/image/)

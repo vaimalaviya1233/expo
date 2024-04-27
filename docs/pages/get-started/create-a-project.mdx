@@ -6,8 +6,19 @@ hideTOC: true
 
 import { Terminal } from '~/ui/components/Snippet';
 import { TemplateFeatures } from '~/scenes/get-started/create-a-project/TemplateFeatures';
+import { ProjectStructure } from '~/scenes/get-started/create-a-project/ProjectStructure';
 
-Create a project with:
+## Get started
+
+System requirements:
+
+- [Git](https://git-scm.com)
+- [Node.js (LTS)](https://nodejs.org/en/)
+- [Watchman](https://facebook.github.io/watchman/docs/install#buildinstall) for Linux or macOS users
+
+---
+
+We recommend creating a project with our default project template:
 
 <Terminal cmd={['$ npx create-expo-app@latest']} />
 
@@ -21,25 +32,6 @@ The default project template has the following features:
 
 ## File structure
 
-Here’s an overview of the project’s structure:
+Below, you can get familiar with the default project's file structure:
 
-- **app/**
-  - The files inside the **app** diretory create the app’s [navigation](link to navigation).
-- **assets**
-  - The **assets** folder contains **adaptive-icon.png** used for Android and an **icon.png** used for iOS as an app icon. It also contains **splash.png** which is an image for the project's splash screen and a **favicon.png** if the app runs in a browser.
-- **components**
-  - Contains React Native components, like **ThemedText.tsx**, which creates text elements that use the app’s color scheme in light and dark mode.
-- **constants**
-  - Contains **Colors.ts**, which contains a list of color values throughout the app.
-- **hooks**
-  - Contains [React Hooks](link), which allows sharing common behavior between components.
-- **scripts**
-  - Contains **reset-project.js**, which can be run with `npx run reset-project`. This script will move the **app** directory to **app-example**, and create a new **app** directory with an **index.tsx** file.
-- **app.json**
-  - Contains configuration options for the project. These options change the behavior of your project while developing, building, submitting, and updating your app.
-- **babel.config.js**
-  - Applies the babel-preset-expo preset that extends the default React Native preset and adds support for decorators, tree-shaking web packages, and loading font icons with optional native dependencies if they're installed. You can also modify this file to add additional Babel plugins or presets.
-- **package.json**
-  - The **package.json** file contains the project's dependencies, scripts and metadata. Anytime a new dependency is added to your project, it will be added to this file.
-- **tsconfig.json**
-  - Contains the rules that TypeScript will use to enforce type safety throughout the project.
+<ProjectStructure />
