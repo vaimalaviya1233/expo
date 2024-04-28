@@ -4,27 +4,23 @@ description: Learn how to set up your development environment to start building 
 hideTOC: true
 ---
 
-import { Example } from '~/scenes/get-started/set-up-your-environment';
+import { PlatformAndDeviceForm } from '~/scenes/get-started/set-up-your-environment/PlatformAndDeviceForm';
+import { DevelopmentModeForm } from '~/scenes/get-started/set-up-your-environment/DevelopmentModeForm';
+import { DevelopmentEnvironmentInstructions } from '~/scenes/get-started/set-up-your-environment/DevelopmentEnvironmentInstructions';
 
-<Example />
-
-Let’s set up a local development environment for running your project on Android and iOS.
+Let's set up a local development environment for running your project on Android and iOS.
 
 ## Where would you like to develop?
 
 We recommend using a real device to develop, since you'll get to see exactly what your users will see.
 
-- Android device
-- iOS device
-- Android Emulator
-- iOS simulator
+<PlatformAndDeviceForm />
 
 ## How would you like to develop?
 
 We recommend development builds. A development build is a build of your app that includes Expo's developer tools. Expo Go is a sandbox for trying out Expo quickly.
 
-- Development build
-- Expo Go
+<DevelopmentModeForm />
 
 {/* So, we need some radio buttons for each of the choices above. Each radio button should add a URL param so that you can link to a specific part of this page. Probably: /get-started/set-up-your-environment?device=physical&platform=android&mode=development Then we can have a section for each of the choices above. */}
 
@@ -32,53 +28,4 @@ We recommend development builds. A development build is a build of your app that
 
 ---
 
-## Android device + development build
-
-- Install EAS CLI
-- Make a build with `eas build --profile development`
-- Download the .apk
-- Install the .apk on your device
-- Might need to have developer mode turned on?
-
-## Android device + Expo Go
-
-- Go download it on the Play Store
-
-## iOS device + development build
-
-- Install EAS CLI
-- App store developer account required
-- Set up credentials
-- Install profile
-- Add your device
-- Make a build with `eas build --profile development`
-- Scan the result link to side load it
-
-## iOS device + Expo Go
-
-- Go download it on the App Store
-
-## Android Emulator + development build
-
-http://localhost:3002/workflow/android-studio-emulator/
-
-- Install EAS CLI
-- Make a build with `eas build --profile development`
-- Download the .apk
-- Install the .apk on the emulator
-
-## Android Emulator + Expo Go
-
-http://localhost:3002/workflow/android-studio-emulator/
-
-## iOS simulator + development build
-
-http://localhost:3002/workflow/ios-simulator/
-
-- Install EAS CLI
-- In eas.json, add simulator = true under ios in the development build profile
-- Make a build with `eas build --profile development`
-
-## iOS simulator + Expo Go
-
-http://localhost:3002/workflow/ios-simulator/
+<DevelopmentEnvironmentInstructions />

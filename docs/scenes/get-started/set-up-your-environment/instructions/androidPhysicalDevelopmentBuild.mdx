@@ -1,0 +1,47 @@
+import { Step } from '~/ui/components/Step';
+import { Terminal } from '~/ui/components/Snippet';
+
+{/* - Install EAS CLI - Make a build with `eas build --profile development` - Download the .apk - Install the .apk on your device - Might need to have developer mode turned on? */}
+
+Read the instructions below to create a development build of your app for your Android device.
+
+## Create a development build
+
+<Step label="1">
+
+### Install EAS CLI
+
+To build your app, you will need to install the EAS CLI. You can do this by running the following command in your terminal:
+
+<Terminal cmd={['$ npm install -g eas-cli']} />
+
+</Step>
+
+<Step label="2">
+
+### Create an Expo account and login
+
+To build your app, you will need to create an Expo account and login to the EAS CLI.
+
+1. [Sign up](https://expo.dev/signup) for an Expo account
+2. Run the following command in your terminal to login to the EAS CLI:
+   <Terminal cmd={['$ eas login']} />
+
+</Step>
+
+<Step label="3">
+### Configure your project
+
+Run the following command to create an EAS config in your project:
+
+<Terminal cmd={['$ eas build:configure']} />
+
+</Step>
+
+<Step label="4">
+### Create a build
+
+Run the following command to create a development build:
+
+<Terminal cmd={['$ eas build --platform android']} />
+</Step>
