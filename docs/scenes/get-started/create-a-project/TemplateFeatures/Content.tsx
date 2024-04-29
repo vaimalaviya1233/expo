@@ -14,12 +14,15 @@ export function Content({ imgSrc, darkImgSrc, alt, href, content }: Props) {
   const { themeName } = useTheme();
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  useEffect(function didMount() {
-    const darkMode =
-      themeName === 'dark' ||
-      (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
-    setIsDarkMode(darkMode);
-  }, []);
+  useEffect(
+    function didMount() {
+      const darkMode =
+        themeName === 'dark' ||
+        (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      setIsDarkMode(darkMode);
+    },
+    [themeName]
+  );
 
   return (
     <div>

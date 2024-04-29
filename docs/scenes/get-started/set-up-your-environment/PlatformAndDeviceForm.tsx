@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 
-import { SelectCard } from '../SelectCard';
+import { SelectCard } from './SelectCard';
 
 export function PlatformAndDeviceForm() {
   const router = useRouter();
