@@ -68,16 +68,16 @@ export function PlatformAndDeviceForm() {
         <SelectCard
           imgSrc="/static/images/get-started/android-emulator.png"
           darkImgSrc="/static/images/get-started/android-emulator-dark.png"
-          title="Android emulator"
-          alt="Android emulator"
+          title="Android Emulator"
+          alt="Android Emulator"
           isSelected={platform === 'android' && device === 'simulated'}
           onClick={() => onRadioChange('android', 'simulated')}
         />
         <SelectCard
           imgSrc="/static/images/get-started/ios-simulator.png"
           darkImgSrc="/static/images/get-started/ios-simulator-dark.png"
-          title="iOS simulator"
-          alt="iOS simulator"
+          title="iOS Simulator"
+          alt="iOS Simulator"
           isSelected={platform === 'ios' && device === 'simulated'}
           onClick={() => onRadioChange('ios', 'simulated')}
         />
