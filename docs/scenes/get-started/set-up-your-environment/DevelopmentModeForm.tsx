@@ -43,7 +43,7 @@ export function DevelopmentModeForm() {
         darkImgSrc="/static/images/get-started/expo-go-dark.png"
         title="Expo Go"
         alt="Expo Go"
-        description="Try out app development in a limited sandbox. Great for testing out Expo quickly."
+        description="Try out app development in a limited sandbox without custom native modules. Great for testing out Expo quickly. Not intended for long-term projects."
         isSelected={mode === 'expo-go'}
         onClick={() => onRadioChange('expo-go')}
       />
