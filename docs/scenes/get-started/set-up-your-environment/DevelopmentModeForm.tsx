@@ -52,7 +52,7 @@ export function DevelopmentModeForm() {
         darkImgSrc="/static/images/get-started/development-build-dark.png"
         title="Development build"
         alt="Development build"
-        description="Adds developer tools to your app. Include native libraries. Great for production-level projects."
+        description="Make a build of your own app with developer tools. Supports custom native modules. Intended for production projects."
         isSelected={mode === 'development-build'}
         onClick={() => onRadioChange('development-build')}
       />
