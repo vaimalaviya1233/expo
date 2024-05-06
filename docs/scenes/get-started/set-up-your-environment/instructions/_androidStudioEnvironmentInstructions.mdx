@@ -28,11 +28,7 @@ Use a package manager such as [Homebrew](https://brew.sh/) to install the follow
 
 Install OpenJDK distribution called Azul Zulu using Homebrew. This distribution offers JDKs for both Apple Silicon and Intel Macs.
 
-<Tabs>
-
-<Tab label="SDK 50 and above">
-
-We recommend JDK 17. Run the following commands in a terminal window to install it:
+Run the following commands in a terminal:
 
 <Terminal
   cmd={['$ brew tap homebrew/cask-versions', '$ brew install --cask zulu@17']}
@@ -44,25 +40,6 @@ After you install the JDK, add the `JAVA_HOME` environment variable in **~/.bash
 ```bash
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
 ```
-
-</Tab>
-
-<Tab label="SDK 49 and below">
-
-We recommend JDK 11 (you may encounter problems with higher JDK versions). Run the following commands in a terminal window to install it:
-
-<Terminal
-  cmd={['$ brew tap homebrew/cask-versions', '$ brew install --cask zulu11']}
-  cmdCopy="brew tap homebrew/cask-versions && brew install --cask zulu11"
-/>
-
-After you install the JDK, add the `JAVA_HOME` environment variable in **~/.bash_profile** (or **~/.zshrc** if you use Zsh):
-
-```bash
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home
-```
-
-</Tab>
 
 </Tabs>
 
@@ -84,25 +61,7 @@ Use a package manager such as [Chocolatey](https://chocolatey.org/) to install t
 
 Install [Java SE Development Kit (JDK)](https://openjdk.org/):
 
-<Tabs>
-
-<Tab label="SDK 50 and above">
-
-For SDK 50 and above, install JDK version 17.
-
 <Terminal cmd={['$ choco install -y microsoft-openjdk17']} />
-
-</Tab>
-
-<Tab label="SDK 49 and below">
-
-For SDK 49 and below, install JDK version 11.
-
-<Terminal cmd={['$ choco install -y microsoft-openjdk11']} />
-
-</Tab>
-
-</Tabs>
 
 </Step>
 
