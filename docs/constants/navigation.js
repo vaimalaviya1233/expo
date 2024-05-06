@@ -55,6 +55,7 @@ const home = [
     makePage('get-started/create-a-project.mdx'),
     makePage('get-started/set-up-your-environment.mdx'),
     makePage('get-started/start-developing.mdx'),
+    makePage('get-started/next-steps.mdx'),
   ]),
   makeSection('Develop', [
     makeGroup(
