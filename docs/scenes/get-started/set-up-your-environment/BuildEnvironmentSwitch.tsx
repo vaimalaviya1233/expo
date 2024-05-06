@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 
 import { Switch } from '~/ui/components/Switch';
-import { P } from '~/ui/components/Text';
+import { CALLOUT, HEADLINE, P } from '~/ui/components/Text';
 
 type Props = {
   type: 'android-studio' | 'xcode';
@@ -26,6 +26,18 @@ export function BuildEnvironmentSwitch({ type }: Props) {
 
   function onSwitchChange(isOn: boolean) {
     if (isOn) {
+      setBuildEnv(null);
+
+      const _query = query;
+      delete _query.buildEnv;
+      router.push(
+        {
+          query: _query,
+        },
+        undefined,
+        { shallow: true }
+      );
+    } else {
       setBuildEnv(type);
 
       router.push(
@@ -38,26 +50,22 @@ export function BuildEnvironmentSwitch({ type }: Props) {
         undefined,
         { shallow: true }
       );
-    } else {
-      setBuildEnv(null);
-
-      const _query = query;
-      delete _query.buildEnv;
-      router.push(
-        {
-          query: _query,
-        },
-        undefined,
-        { shallow: true }
-      );
     }
   }
 
   return (
-    <div className="flex gap-1.5 items-center">
-      <Switch onChange={onSwitchChange} value={buildEnv === type} />
-      {type === 'android-studio' ? <P>Build locally with Android Studio</P> : null}
-      {type === 'xcode' ? <P>Build locally with Xcode</P> : null}
+    <div className="flex gap-3 items-start px-4 py-3 bg-subtle border border-default rounded-lg">
+      <div className="mt-1">
+        <Switch onChange={onSwitchChange} value={!buildEnv} />{' '}
+      </div>
+      <div>
+        <HEADLINE>Build with Expo Application Services (EAS)</HEADLINE>
+        <CALLOUT theme="secondary">
+          {' '}
+          EAS compiles your app in the cloud and produces a build that you can install on your
+          device. Alternatively, you can compile your app on your own computer.
+        </CALLOUT>
+      </div>
     </div>
   );
 }
