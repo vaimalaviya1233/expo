@@ -4,20 +4,16 @@ import React, { useEffect, useState } from 'react';
 import { Switch } from '~/ui/components/Switch';
 import { CALLOUT, HEADLINE, P } from '~/ui/components/Text';
 
-type Props = {
-  type: 'android-studio' | 'xcode';
-};
-
-export function BuildEnvironmentSwitch({ type }: Props) {
+export function BuildEnvironmentSwitch() {
   const router = useRouter();
   const { query, isReady } = router;
-  const [buildEnv, setBuildEnv] = useState<'android-studio' | 'xcode' | null>(null);
+  const [buildEnv, setBuildEnv] = useState<'local' | null>(null);
 
   useEffect(
     function queryDidUpdate() {
       if (isReady) {
         if (query.buildEnv) {
-          setBuildEnv(query.buildEnv as 'android-studio' | 'xcode');
+          setBuildEnv(query.buildEnv as 'local');
         }
       }
     },
@@ -38,13 +34,13 @@ export function BuildEnvironmentSwitch({ type }: Props) {
         { shallow: true }
       );
     } else {
-      setBuildEnv(type);
+      setBuildEnv('local');
 
       router.push(
         {
           query: {
             ...query,
-            buildEnv: type,
+            buildEnv: 'local',
           },
         },
         undefined,

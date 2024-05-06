@@ -31,7 +31,7 @@ export function DevelopmentEnvironmentInstructions() {
     query.device === 'physical' &&
     query.mode === 'development-build'
   ) {
-    if (query.buildEnv === 'android-studio') {
+    if (query.buildEnv === 'local') {
       return <AndroidPhysicalDevelopmentBuildLocal />;
     }
 
@@ -47,7 +47,7 @@ export function DevelopmentEnvironmentInstructions() {
     query.device === 'simulated' &&
     query.mode === 'development-build'
   ) {
-    if (query.buildEnv === 'android-studio') {
+    if (query.buildEnv === 'local') {
       return <AndroidSimulatedDevelopmentBuildLocal />;
     }
 
@@ -63,7 +63,7 @@ export function DevelopmentEnvironmentInstructions() {
     query.device === 'physical' &&
     query.mode === 'development-build'
   ) {
-    if (query.buildEnv === 'xcode') {
+    if (query.buildEnv === 'local') {
       return <IosPhysicalDevelopmentBuildLocal />;
     }
 
@@ -75,7 +75,7 @@ export function DevelopmentEnvironmentInstructions() {
     query.device === 'simulated' &&
     query.mode === 'development-build'
   ) {
-    if (query.buildEnv === 'xcode') {
+    if (query.buildEnv === 'local') {
       return <IosSimulatedDevelopmentBuildLocal />;
     }
 

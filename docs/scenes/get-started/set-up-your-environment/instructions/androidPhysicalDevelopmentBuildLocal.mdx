@@ -10,7 +10,7 @@ import AndroidStudioInstructions from './_androidStudioInstructions.mdx';
 
 ## Set up an Android device with a development build
 
-<BuildEnvironmentSwitch type="android-studio" />
+<BuildEnvironmentSwitch />
 
 <AndroidStudioEnvironmentInstructions />
 
@@ -19,6 +19,16 @@ import AndroidStudioInstructions from './_androidStudioInstructions.mdx';
 ## Running your app on an Android device
 
 <Step label="1">
+
+### Install expo-dev-client
+
+Run the following command in your project's root directory:
+
+<Terminal cmd={['$ npx expo install expo-dev-client']} />
+
+</Step>
+
+<Step label="2">
 ### Enable debugging over USB
 
 Most Android devices can only install and run apps downloaded from Google Play, by default. You will need to enable USB Debugging on your device to install your app during development.
@@ -27,7 +37,7 @@ To enable USB debugging on your device, you will first need to enable the "Devel
 
 </Step>
 
-<Step label="2">
+<Step label="3">
 
 ### Plug in your device via USB
 
@@ -43,7 +53,7 @@ List of devices attached
 
 </Step>
 
-<Step label="3">
+<Step label="4">
 ### Run your app
 
 Run the following from your terminal:
