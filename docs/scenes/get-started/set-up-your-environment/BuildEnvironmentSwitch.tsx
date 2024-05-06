@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 
 import { Switch } from '~/ui/components/Switch';
-import { CALLOUT, HEADLINE, P } from '~/ui/components/Text';
+import { CALLOUT, HEADLINE } from '~/ui/components/Text';
 
 export function BuildEnvironmentSwitch() {
   const router = useRouter();
